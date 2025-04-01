@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        GITHUB_URL = 'https://github.com/miamioh-cit/gns3-project-deploy.git'
-        IMAGE_NAME = 'gns3-deploy'
+        GITHUB_URL = 'https://github.com/miamioh-cit/gns3-project-delete.git'
+        IMAGE_NAME = 'gns3-delete'
     }
 
     stages {
