@@ -18,4 +18,4 @@ RUN apt-get update && \
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Default command to run the deploy script
-CMD ["python3", "gns3-project-deleter.py"]
+CMD ["python3", "gns3-project-delete.py"]
