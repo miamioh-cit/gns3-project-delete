@@ -6,11 +6,11 @@ GNS3_PW = "gns3"
 
 # Read last octets from datastore
 try:
-    with open("datastore", "r") as f:
+    with open("last_octet", "r") as f:
         content = f.read().strip()
         SERVER_LAST_OCTETS = [int(o.strip()) for o in content.split(",") if o.strip().isdigit()]
 except Exception as e:
-    print("Error reading datastore file:", e)
+    print("Error reading last_octet file:", e)
     SERVER_LAST_OCTETS = []
 
 if not SERVER_LAST_OCTETS:
