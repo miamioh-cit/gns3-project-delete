@@ -4,8 +4,7 @@ BASE_IP = "http://10.48.229."
 GNS3_USER = "gns3"
 GNS3_PW = "gns3"
 
-#list of specific projects to delete
-PROJECTS_TO_DELETE = ["test1"]
+
 # Read last octets from datastore
 try:
     with open("last_octet", "r") as f:
