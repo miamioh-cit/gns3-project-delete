@@ -38,15 +38,15 @@ for SERVER_URL in SERVER_URLS:
                 PROJECTS_TO_DELETE = []
             if not PROJECTS_TO_DELETE:
                 raise ValueError("No valid project names found in 'projects_to_delete.txt.'.")
-            
-            #for project in projects:
-              #  if project["name"] in PROJECTS_TO_DELETE:
-               #     print(f" Deleting project '{project['name']} '...")
-                #    server.delete_project(project_id=project["project_id"])
-                 #   print("Specific projects have been deleted!")
-                #print(f"  Deleting project '{project['name']}'...")
-                # server.delete_project(project_id=project["project_id"])
-           # print("  All projects deleted.")
+        for project in projects:
+            if project["name"] in PROJECTS_TO_DELETE:
+                try:
+                    print(f"Deleting project '{project['name']}'...")
+                    server.delete_project(project_id=project["project_id"])
+                    print(f"Project '{project['name']}' deleted successfully!")
+                except Exception as e:
+                    print(f"Failed to delete project '{project['name']}': {e}")
+
 
     except Exception as e:
         print(f"Failed to process {SERVER_URL}: {e}")
