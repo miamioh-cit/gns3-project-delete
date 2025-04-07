@@ -31,11 +31,20 @@ for SERVER_URL in SERVER_URLS:
         if not projects:
             print("  No projects to delete.")
         else:
-            for project in projects:
-                if project["name"] in PROJECTS_TO_DELETE:
-                    print(f" Deleting project '{project['name']} '...")
-                    server.delete_project(project_id=project["project_id"])
-                    print("Specific projects have been deleted!")
+            try:
+                with open ("projects_to_delete.txt", "r") as f:
+                    PROJECTS_TO_DELETE = [line.strip() for line in f if line.strip()]
+            except Exception as e:
+                print ("Error reading 'Projects_to_delete.txt' file: ", e)
+                PROJECTS_TO_DELETE = []
+            if not PROJECTS_TO_DELETE:
+                raise ValueError("No valid project names found in 'projects_to_delete.txt.'.")
+            
+            #for project in projects:
+              #  if project["name"] in PROJECTS_TO_DELETE:
+               #     print(f" Deleting project '{project['name']} '...")
+                #    server.delete_project(project_id=project["project_id"])
+                 #   print("Specific projects have been deleted!")
                 #print(f"  Deleting project '{project['name']}'...")
                 # server.delete_project(project_id=project["project_id"])
            # print("  All projects deleted.")
