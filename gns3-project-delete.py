@@ -1,4 +1,5 @@
 from gns3fy import Gns3Connector
+import re
 
 BASE_IP = "http://10.48.229."
 GNS3_USER = "gns3"
